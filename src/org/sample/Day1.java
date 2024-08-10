@@ -28,5 +28,9 @@ public class Day1 {
 	WebDriverWait wt = new WebDriverWait(driver, Duration.ofSeconds(30));
 	WebElement txtFN = wt.until(ExpectedConditions.visibilityOfElementLocated(By.name("firstname")));
 	txtFN.sendKeys("HelloJava");
+
+	WebElement txtLN = driver.findElement(By.id("lastName"));
+	txtLN.sendKeys("Welcome@123");
+	
     }
 }
