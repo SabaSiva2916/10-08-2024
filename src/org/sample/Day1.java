@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Day1 {
@@ -29,9 +30,11 @@ public class Day1 {
 	WebDriverWait wt = new WebDriverWait(driver, Duration.ofSeconds(30));
 	WebElement txtFN = wt.until(ExpectedConditions.visibilityOfElementLocated(By.name("firstname")));
 	txtFN.sendKeys("HelloJava");
-
 	WebElement txtLN = driver.findElement(By.id("lastName"));
 	txtLN.sendKeys("Welcome@123");
+	WebElement dropDay = driver.findElement(By.id("day"));
+	Select se = new Select(dropDay);
+	se.selectByVisibleText("12");
 
 	WebElement tableData = driver.findElement(By.id("customer"));
 	List<WebElement> allRows = tableData.findElements(By.tagName("tr"));
