@@ -3,6 +3,7 @@ package org.sample;
 import java.time.Duration;
 import java.util.Enumeration;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Vector;
 
@@ -31,6 +32,14 @@ public class Day1 {
 
 	WebElement txtLN = driver.findElement(By.id("lastName"));
 	txtLN.sendKeys("Welcome@123");
-	
+
+	WebElement tableData = driver.findElement(By.id("customer"));
+	List<WebElement> allRows = tableData.findElements(By.tagName("tr"));
+	for (int i = 0; i < allRows.size(); i++) {
+	    WebElement ele = allRows.get(i);
+	    String text = ele.getText();
+	    System.out.println(text);
+	}
+
     }
 }
